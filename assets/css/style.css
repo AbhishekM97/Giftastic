@@ -1,6 +1,3 @@
-.topicButton{
-    margin:10px;
-    background-color: blue;
-    color: white;
-    border: 4px ridge white;
+#Button-View {
+    border: 4px solid black;
 }
