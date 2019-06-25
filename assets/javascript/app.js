@@ -1,5 +1,5 @@
 
-var topics = ["happy", "nature", "food", "music", "movies", "money"];
+var topics = ["happy", "nature", "monkey", "music", "movies", "money"];
 
 /*From the topics create buttons in HTML page.
 have a form that allows users to append buttons to the intial array of buttons 
@@ -33,13 +33,19 @@ function displaygiff() {
             
             image.attr("class","giff");
 
-           image.attr("data-state", "still");
+            image.attr("data-state", "still");
 
-           image.attr("data-animate", response.data[i].images.fixed_height.url);
+            image.attr("data-animate", response.data[i].images.fixed_height.url);
            
             image.attr("data-still", response.data[i].images.fixed_height_still.url);
 
-           gifDiv.append(image).append(pOne);
+            image.css("border","4px solid black");
+
+            gifDiv.css("float", "left");
+
+            gifDiv.css("margin", "4px");
+
+            gifDiv.append(image).append(pOne);
             
             $("#GIFS").append(gifDiv);
 
@@ -65,17 +71,23 @@ $(document).ready(function(){
 
 function AddButton(){
     $("#Button-View").empty();
-
+    $("#topic").css("border","2px solid black");
+    $("#topic").css("height","200px");
+    $("#topic").css("padding-top","30px");
+    $("#topic").css("padding-left","30px");
+    $("#topic").css("float","center");
     for(i=0; i<topics.length;i++){
         var bttn = $("<button>");
-        bttn.addClass("topicButton");
+        bttn.addClass("btn-danger");
+        bttn.addClass("btn");
         bttn.attr("data-name", topics[i]);
         bttn.text(topics[i]);
+        bttn.css("margin", "5px");
         $("#Button-View").append(bttn);
     }
 }
 
-$(document).on("click",".topicButton", displaygiff);
+$(document).on("click",".btn-danger", displaygiff);
 
 AddButton();
 
